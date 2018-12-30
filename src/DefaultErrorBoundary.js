@@ -8,6 +8,10 @@ class DefaultErrorBoundary extends PureComponent {
     return { isError: true };
   }
 
+  static propTypes = {
+    children: PropTypes.node.isRequired
+  };
+
   render() {
     const { isError } = this.state;
     const { children } = this.props;
@@ -15,9 +19,5 @@ class DefaultErrorBoundary extends PureComponent {
     return isError ? <div>Something went wrong!</div> : children;
   }
 }
-
-DefaultErrorBoundary.propTypes = {
-  children: PropTypes.node.isRequired
-};
 
 export default DefaultErrorBoundary;
